@@ -1,0 +1,5 @@
+# Options Pricing & Greeks Calculator
+# Python 3.11+
+
+numpy>=1.26
+matplotlib>=3.8
