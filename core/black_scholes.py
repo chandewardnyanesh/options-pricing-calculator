@@ -172,7 +172,8 @@ class BlackScholes:
         for _ in range(max_iter):
             bs = BlackScholes(S, K, T, r, sigma)
             price = bs.call_price() if option_type == "call" else bs.put_price()
-            vega = bs.vega()  # dPrice/dSigma — the Newton step denominator
+            # Newton denominator must be raw dPrice/dSigma; vega() reports per 1% vol
+            vega = bs.vega() * 100.0
             diff = price - market_price
             if abs(diff) < tol:
                 return sigma
