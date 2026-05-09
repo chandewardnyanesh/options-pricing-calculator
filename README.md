@@ -47,7 +47,7 @@ Set `SHOW_PLOTS = True` in `main.py` to also render the charts.
 
 Theta and Charm are **per calendar day** (÷365); Vega, Rho, and Volga are **per 1% move** (÷100); Delta, Gamma, Vanna are raw derivatives. Tests validate every Greek against central finite differences with these scalings.
 
-## Bugs found & fixed during verification (2026-06-11)
+## Bugs found & fixed during verification (2026-05-09)
 
 1. **Implied vol always NaN** — Newton-Raphson divided by the per-1% `vega()`, making the step 100× too large. Fixed with raw dPrice/dσ (`core/black_scholes.py`).
 2. **Convergence table crash** — `convergence_study` emitted key `"price"` while `print_convergence` expected `"mc_price"` (`KeyError`). Fixed in `BSvsMC.convergence_table` (`analytics/comparison.py`).
