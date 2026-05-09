@@ -78,6 +78,8 @@ class BSvsMC:
         bs_price = self.bs.call_price() if option_type == "call" else self.bs.put_price()
         rows = self.mc.convergence_study(option_type, n_values, bs_price=bs_price)
         for row in rows:
+            # convergence_study emits "price"; this table promises "mc_price"
+            row["mc_price"] = row.pop("price")
             row["bs_price"] = bs_price
             if row["abs_error"] is not None:
                 row["rel_error_pct"] = row["abs_error"] / bs_price * 100.0

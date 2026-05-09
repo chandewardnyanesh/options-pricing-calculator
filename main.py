@@ -24,7 +24,7 @@ from core.greeks import Greeks
 from core.monte_carlo import MonteCarlo
 from analytics.comparison import BSvsMC
 
-SHOW_PLOTS = True   # set False to skip matplotlib output
+SHOW_PLOTS = False   # set False to skip matplotlib output
 
 # ====================================================================
 # Parameters

@@ -20,7 +20,7 @@ def test_bsvsmc_compare_consistency():
 
 def test_convergence_table_has_bs_and_rel_error():
     rows = BSvsMC(100, 100, 0.5, 0.05, 0.20, seed=42).convergence_table("call", [500, 5_000])
-    assert all("bs_price" in r and "rel_error_pct" in r for r in rows)
+    assert all("mc_price" in r and "bs_price" in r and "rel_error_pct" in r for r in rows)
 
 
 def test_vol_smile_recovers_flat_vol():
